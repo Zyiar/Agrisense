@@ -1,7 +1,4 @@
 # app/main.py
-from db_utils import init_db
-
-init_db()
 
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -10,7 +7,7 @@ import streamlit as st
 from auth import init_db, create_user, verify_user, create_reset_token, reset_password
 from dashboard import show_dashboard
 from admin_dash import show_admin_dashboard
-from landing import show_landing 
+from landing import show_landing  # 🌾 NEW: Landing page import
 
 # ========================================================
 # MAIN ENTRY POINT
@@ -77,6 +74,7 @@ def show_auth_page():
 
 def show_signup():
     st.subheader("Create Your Account")
+
     with st.form("signup_form"):
         name = st.text_input("Full name")
         username = st.text_input("Username")
@@ -105,7 +103,7 @@ def show_signup():
 
 
 def show_login():
-    st.subheader("Login to Your Account")
+    st.subheader("🔐 Login to Your Account")
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
